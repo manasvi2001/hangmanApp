@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman App</title>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-app="HangmanApp" ng-controller="GameController">
+	<div>
+		Guesses Left :: {{guesses}}
+	</div>
+	<div>
+		<div style="min-width: 40%">
+			Correct Letters :: <span ng-repeat="letter in correctLettersChosen">{{letter}}</span>
+		</div>
+		<div style="min-width: 40%">
+			Incorrect Letters :: <span ng-repeat="letter in incorrectLettersChosen">{{letter}}</span>
+		</div>
+	</div>
+	<div>{{displayWord}}</div>
+	<div>
+		<input type="text" name="guess" ng-model="input.letter" ng-minlength="1" ng-maxlength="1" ng-pattern="/^[A-Za-z]+$/">
+		<button ng-click="letterChosen()">SUBMIT</button>
+	</div>
+</body>
+</html>
